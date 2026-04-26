@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { featuredPosts } from '../data/content'
+import { editorialPosts } from '../data/editorial'
+import { Link } from 'react-router-dom'
 import { fadeUp, hoverLift, stagger } from '../lib/motion'
 import { Container } from './Container'
 import { SectionHeading } from './SectionHeading'
@@ -55,9 +56,12 @@ function Meta({
 }
 
 export function FeaturedBlogs() {
+  // Filter out Technology category
+  const filteredPostsForCategories = editorialPosts.filter(post => post.category !== 'Technology')
+  
   const categories = [
     { key: 'all', label: 'All' },
-    ...Array.from(new Set(featuredPosts.map((post) => post.category))).map((category) => ({
+    ...Array.from(new Set(filteredPostsForCategories.map((post) => post.category))).map((category) => ({
       key: category.toLowerCase(),
       label: category,
     })),
@@ -67,8 +71,8 @@ export function FeaturedBlogs() {
   const normalize = (value: string) => value.trim().toLowerCase()
   const filteredPosts =
     activeCategoryKey === 'all'
-      ? featuredPosts
-      : featuredPosts.filter((post) => normalize(post.category) === activeCategoryKey)
+      ? filteredPostsForCategories
+      : filteredPostsForCategories.filter((post) => normalize(post.category) === activeCategoryKey)
 
   return (
     <section id="blog" className="py-10 sm:py-12">
@@ -84,7 +88,7 @@ export function FeaturedBlogs() {
               title="Featured Blogs"
               action={
                 <a
-                  href="#"
+                  href="/blog"
                   className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-semibold text-ink-900 shadow-soft backdrop-blur transition hover:bg-white"
                 >
                   See All Posts <span aria-hidden="true">→</span>
@@ -114,25 +118,26 @@ export function FeaturedBlogs() {
             })}
           </motion.div>
 
-          <div className="mt-6 columns-1 gap-4 sm:columns-2 lg:columns-3">
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredPosts.map((p) => (
-              <motion.a
+              <motion.div
                 key={p.id}
-                href="#"
                 variants={fadeUp}
                 initial={false}
                 {...hoverLift}
-                className="group mb-4 inline-block w-full break-inside-avoid rounded-3xl border border-white/60 bg-white/55 p-3.5 shadow-soft backdrop-blur"
+                className="group rounded-3xl border border-white/60 bg-white/55 p-3.5 shadow-soft backdrop-blur"
               >
-                <ImgBlock src={p.image} from={p.accentFrom} to={p.accentTo} />
-                <Meta
-                  category={p.category}
-                  title={p.title}
-                  excerpt={p.excerpt}
-                  author={p.author}
-                  dateLabel={p.dateLabel}
-                />
-              </motion.a>
+                <Link to={`/blog/${p.slug}`}>
+                  <ImgBlock src={p.image} from={p.accentFrom} to={p.accentTo} />
+                  <Meta
+                    category={p.category}
+                    title={p.title}
+                    excerpt={p.excerpt}
+                    author={p.author}
+                    dateLabel={p.dateLabel}
+                  />
+                </Link>
+              </motion.div>
             ))}
             {filteredPosts.length === 0 ? (
               <div className="rounded-3xl border border-white/60 bg-white/60 p-6 text-sm text-ink-700 shadow-soft backdrop-blur">

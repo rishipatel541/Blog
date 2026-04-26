@@ -34,17 +34,16 @@ export type VideoItem = {
 }
 
 export const navLinks = [
-  { label: 'Home', href: '#' },
+  { label: 'Home', href: '/' },
   { label: 'About', href: '#about' },
   { label: 'Work', href: '#work' },
-  { label: 'Blog', href: '#blog' },
+  { label: 'Blogs', href: '/blog' },
   { label: 'Contact', href: '#contact' },
 ] as const
 
 export const popularTags = [
   'Popular',
   'Portfolio',
-  'Technology',
   'Design',
   'UI/UX',
   'Writing',

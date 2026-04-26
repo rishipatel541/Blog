@@ -1,0 +1,46 @@
+// server/src/models/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Blog {
+  id              String   @id @default(uuid())
+  slug            String   @unique
+  title           String
+  keyword         String
+  metaTitle       String
+  metaDescription String
+  hook            String
+  quickSummary    String[]
+  buyingGuide     String[]
+  conclusion      String
+  faqs            Json     // Array of {question, answer}
+  category        String
+  author          String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  products        Product[]
+}
+
+model Product {
+  id              String   @id @default(uuid())
+  externalId      String   @unique // Amazon ASIN or Adtech ID
+  name            String
+  price           Float
+  currency        String   @default("USD")
+  rating          Float
+  availability    String
+  image           String
+  affiliateLink   String
+  features        String[]
+  pros            String[]
+  cons            String[]
+  lastUpdated     DateTime @default(now())
+  blogs           Blog[]
+}

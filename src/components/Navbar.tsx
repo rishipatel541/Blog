@@ -33,8 +33,7 @@ export function Navbar() {
     () =>
       [
         { label: 'Home', href: '/' },
-        { label: 'Tech', href: '/category/tech' },
-        { label: 'Blog', href: '/blog/best-desk-setup' },
+        { label: 'Blogs', href: '/blog' },
         { label: 'Brand', href: '/brand/amazon' },
         { label: 'Search', href: '/search' },
       ].map((l) => (

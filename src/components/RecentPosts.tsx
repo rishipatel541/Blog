@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
-import { recentPosts } from '../data/content'
+import { editorialPosts } from '../data/editorial'
 import { fadeUp, hoverLift, stagger } from '../lib/motion'
 import { Container } from './Container'
 import { SectionHeading } from './SectionHeading'
+import { Link } from 'react-router-dom'
 
 function MiniVisual({ src, from, to }: { src: string; from: string; to: string }) {
   return (
@@ -25,8 +26,6 @@ function MiniVisual({ src, from, to }: { src: string; from: string; to: string }
 }
 
 export function RecentPosts() {
-  const loopPosts = [...recentPosts, ...recentPosts]
-
   return (
     <section className="py-10 sm:py-12">
       <Container>
@@ -56,25 +55,26 @@ export function RecentPosts() {
               animate={{ x: ['0%', '-50%'] }}
               transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
             >
-              {loopPosts.map((p, idx) => (
-                <motion.a
+              {editorialPosts.concat(editorialPosts).map((p, idx) => (
+                <motion.div
                   key={`${p.id}-${idx}`}
-                  href="#"
                   variants={fadeUp}
                   {...hoverLift}
                   className="w-[280px] shrink-0 rounded-3xl border border-white/60 bg-white/55 p-4 shadow-soft backdrop-blur sm:w-[320px]"
                 >
-                  <MiniVisual src={p.image} from={p.accentFrom} to={p.accentTo} />
-                  <div className="mt-3">
-                    <div className="text-xs font-semibold text-ink-700/80">{p.category}</div>
-                    <h3 className="mt-1.5 text-sm font-semibold leading-snug tracking-tight text-ink-900 sm:text-base">{p.title}</h3>
-                    <p className="mt-1.5 text-sm text-ink-700">{p.excerpt}</p>
-                    <div className="mt-3 flex items-center justify-between text-xs text-ink-700/80">
-                      <span className="font-medium">By {p.author}</span>
-                      <span>{p.dateLabel}</span>
+                  <Link to={`/blog/${p.slug}`}>
+                    <MiniVisual src={p.image} from={p.accentFrom} to={p.accentTo} />
+                    <div className="mt-3">
+                      <div className="text-xs font-semibold text-ink-700/80">{p.category}</div>
+                      <h3 className="mt-1.5 text-sm font-semibold leading-snug tracking-tight text-ink-900 sm:text-base">{p.title}</h3>
+                      <p className="mt-1.5 text-sm text-ink-700">{p.excerpt}</p>
+                      <div className="mt-3 flex items-center justify-between text-xs text-ink-700/80">
+                        <span className="font-medium">By {p.author}</span>
+                        <span>{p.dateLabel}</span>
+                      </div>
                     </div>
-                  </div>
-                </motion.a>
+                  </Link>
+                </motion.div>
               ))}
             </motion.div>
           </div>
