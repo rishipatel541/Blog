@@ -19,14 +19,16 @@ function MiniVisual({ src, from, to }: { src: string; from: string; to: string }
         loading="lazy"
         decoding="async"
       />
-      <div className="relative aspect-[16/10]" />
+      <div className="relative aspect-[16/9]" />
     </div>
   )
 }
 
 export function RecentPosts() {
+  const loopPosts = [...recentPosts, ...recentPosts]
+
   return (
-    <section className="py-14 sm:py-18">
+    <section className="py-10 sm:py-12">
       <Container>
         <motion.div
           variants={stagger}
@@ -48,29 +50,33 @@ export function RecentPosts() {
             />
           </motion.div>
 
-          <div className="mt-8 -mx-4 overflow-x-auto px-4">
-            <div className="flex min-w-full gap-6 pb-1">
-              {recentPosts.map((p) => (
+          <div className="mt-6 -mx-4 overflow-hidden px-4">
+            <motion.div
+              className="flex w-max gap-4 pb-1"
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
+            >
+              {loopPosts.map((p, idx) => (
                 <motion.a
-                  key={p.id}
+                  key={`${p.id}-${idx}`}
                   href="#"
                   variants={fadeUp}
                   {...hoverLift}
-                  className="w-[320px] shrink-0 rounded-3xl border border-white/60 bg-white/55 p-5 shadow-soft backdrop-blur sm:w-[360px]"
+                  className="w-[280px] shrink-0 rounded-3xl border border-white/60 bg-white/55 p-4 shadow-soft backdrop-blur sm:w-[320px]"
                 >
                   <MiniVisual src={p.image} from={p.accentFrom} to={p.accentTo} />
-                  <div className="mt-4">
+                  <div className="mt-3">
                     <div className="text-xs font-semibold text-ink-700/80">{p.category}</div>
-                    <h3 className="mt-2 text-base font-semibold leading-snug tracking-tight text-ink-900">{p.title}</h3>
-                    <p className="mt-2 text-sm text-ink-700">{p.excerpt}</p>
-                    <div className="mt-4 flex items-center justify-between text-xs text-ink-700/80">
+                    <h3 className="mt-1.5 text-sm font-semibold leading-snug tracking-tight text-ink-900 sm:text-base">{p.title}</h3>
+                    <p className="mt-1.5 text-sm text-ink-700">{p.excerpt}</p>
+                    <div className="mt-3 flex items-center justify-between text-xs text-ink-700/80">
                       <span className="font-medium">By {p.author}</span>
                       <span>{p.dateLabel}</span>
                     </div>
                   </div>
                 </motion.a>
               ))}
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </Container>

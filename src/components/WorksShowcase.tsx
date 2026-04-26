@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
+import workShowcaseImage from '../assets/download.jpeg'
 import { works } from '../data/content'
 import { fadeUp, hoverLift, stagger } from '../lib/motion'
 import { Container } from './Container'
 import { SectionHeading } from './SectionHeading'
 
-function WorkVisual({ src, from, to }: { src: string; from: string; to: string }) {
+function WorkVisual({ from, to }: { from: string; to: string }) {
   return (
     <div
       className="relative overflow-hidden rounded-3xl border border-white/60 shadow-soft"
@@ -13,7 +14,7 @@ function WorkVisual({ src, from, to }: { src: string; from: string; to: string }
       }}
     >
       <img
-        src={src}
+        src={workShowcaseImage}
         alt=""
         className="absolute inset-0 h-full w-full object-cover object-top opacity-95 mix-blend-overlay"
         loading="lazy"
@@ -22,7 +23,7 @@ function WorkVisual({ src, from, to }: { src: string; from: string; to: string }
       <div className="absolute inset-0 opacity-70 [background:radial-gradient(500px_220px_at_60%_0%,rgba(255,255,255,0.55),transparent_65%)]" />
       <div className="absolute -left-20 -top-16 h-64 w-64 rounded-full bg-white/25 blur-3xl" />
       <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-black/10 blur-3xl" />
-      <div className="relative aspect-[16/10] p-6">
+      <div className="relative aspect-[16/9] p-3">
         <div className="grid h-full place-items-center">
           <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white/70 shadow-soft backdrop-blur">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -49,7 +50,7 @@ function WorkVisual({ src, from, to }: { src: string; from: string; to: string }
 
 export function WorksShowcase() {
   return (
-    <section id="work" className="py-14 sm:py-18">
+    <section id="work" className="py-10 sm:py-12">
       <Container>
         <motion.div
           variants={stagger}
@@ -71,16 +72,16 @@ export function WorksShowcase() {
             />
           </motion.div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {works.map((w) => (
               <motion.a
                 key={w.id}
                 href="#"
                 variants={fadeUp}
                 {...hoverLift}
-                className="rounded-3xl border border-white/60 bg-white/55 p-5 shadow-soft backdrop-blur"
+                className="rounded-3xl border border-white/60 bg-white/55 p-3.5 shadow-soft backdrop-blur"
               >
-                <WorkVisual src={w.image} from={w.accentFrom} to={w.accentTo} />
+                <WorkVisual from={w.accentFrom} to={w.accentTo} />
                 <div className="mt-4">
                   <div className="text-xs font-semibold text-ink-700/80">{w.category}</div>
                   <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-ink-900">{w.title}</h3>

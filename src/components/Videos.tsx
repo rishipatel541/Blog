@@ -37,9 +37,8 @@ function VideoCover({ src, from, to }: { src: string; from: string; to: string }
 }
 
 export function Videos() {
-  const [big, ...small] = videos
   return (
-    <section className="py-14 sm:py-18">
+    <section className="py-10 sm:py-12">
       <Container>
         <motion.div
           variants={stagger}
@@ -51,47 +50,29 @@ export function Videos() {
             <SectionHeading title="Recent Videos" />
           </motion.div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-3">
-            <motion.a
-              href="#"
-              variants={fadeUp}
-              {...hoverLift}
-              className="rounded-3xl border border-white/60 bg-white/55 p-5 shadow-soft backdrop-blur lg:col-span-2"
-            >
-              <VideoCover src={big.image} from={big.accentFrom} to={big.accentTo} />
-              <div className="mt-4 flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-xs font-semibold text-ink-700/80">{big.category}</div>
-                  <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-ink-900">{big.title}</h3>
-                </div>
-                <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-semibold text-ink-700 shadow-soft backdrop-blur">
-                  {big.duration}
-                </span>
-              </div>
-            </motion.a>
-
-            <div className="grid gap-6">
-              {small.map((v) => (
-                <motion.a
-                  key={v.id}
-                  href="#"
-                  variants={fadeUp}
-                  {...hoverLift}
-                  className="rounded-3xl border border-white/60 bg-white/55 p-5 shadow-soft backdrop-blur"
-                >
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {videos.map((v) => (
+              <motion.a
+                key={v.id}
+                href="#"
+                variants={fadeUp}
+                {...hoverLift}
+                className="rounded-3xl border border-white/60 bg-white/55 p-3.5 shadow-soft backdrop-blur"
+              >
+                <div className="relative">
                   <VideoCover src={v.image} from={v.accentFrom} to={v.accentTo} />
-                  <div className="mt-4 flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-xs font-semibold text-ink-700/80">{v.category}</div>
-                      <h3 className="mt-2 text-base font-semibold leading-snug tracking-tight text-ink-900">{v.title}</h3>
-                    </div>
-                    <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-semibold text-ink-700 shadow-soft backdrop-blur">
-                      {v.duration}
-                    </span>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
+                  <span className="absolute right-2 top-2 rounded-full bg-ink-900/70 px-2.5 py-1 text-[11px] font-semibold text-white">
+                    {v.duration}
+                  </span>
+                </div>
+                <div className="mt-3">
+                  <div className="text-xs font-semibold text-ink-700/80">{v.category}</div>
+                  <h3 className="mt-1.5 line-clamp-2 text-sm font-semibold leading-snug tracking-tight text-ink-900 sm:text-base">
+                    {v.title}
+                  </h3>
+                </div>
+              </motion.a>
+            ))}
           </div>
         </motion.div>
       </Container>

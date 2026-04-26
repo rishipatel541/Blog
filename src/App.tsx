@@ -6,7 +6,7 @@ import { Navbar } from './components/Navbar'
 import { Newsletter } from './components/Newsletter'
 import { RecentPosts } from './components/RecentPosts'
 import { Videos } from './components/Videos'
-import { WorksShowcase } from './components/WorksShowcase'
+// import { WorksShowcase } from './components/WorksShowcase'
 
 export default function App() {
   return (
@@ -15,7 +15,7 @@ export default function App() {
       <main>
         <Hero />
         <FeaturedBlogs />
-        <WorksShowcase />
+        {/* <WorksShowcase /> */}
         <RecentPosts />
         <CeoMessage />
         <Videos />

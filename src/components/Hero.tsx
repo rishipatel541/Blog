@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import heroImg from '../assets/hero.png'
+import heroImg from '../assets/hero-custom.png'
 import { popularTags, stats } from '../data/content'
 import { fadeUp, floaty, stagger } from '../lib/motion'
 import { Container } from './Container'
@@ -34,26 +34,6 @@ function FloatingCard({
     >
       {children}
     </motion.div>
-  )
-}
-
-function GlassCard({
-  children,
-  className,
-  delay = 0,
-}: {
-  children: React.ReactNode
-  className?: string
-  delay?: number
-}) {
-  return (
-    <FloatingCard
-      delay={delay}
-      className={`relative overflow-hidden rounded-2xl border border-white/40 bg-white/30 shadow-xl backdrop-blur-md ${className}`}
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/10" />
-      <div className="relative">{children}</div>
-    </FloatingCard>
   )
 }
 
@@ -106,66 +86,15 @@ function HeroVisual() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       style={{ x, y }}
-      className="relative h-[380px] w-full sm:h-[420px]"
+      className="relative flex h-[380px] w-full items-center justify-center sm:h-[420px]"
     >
-      {/* Background gradient glow */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-64 w-64 rounded-full bg-violet-500/30 blur-[80px]" />
-        <div className="absolute h-40 w-40 rounded-full bg-blue-500/25 blur-[60px]" />
-      </div>
-
-      {/* Layer 3 - Back card (most offset) */}
-      <FloatingCard delay={0.2} floatRange={16} className="absolute left-1/2 top-1/2 w-56 -translate-x-1/2 -translate-y-1/2 sm:w-64">
-        <GlassCard delay={0.4} className="h-36 rotate-[-3deg] sm:h-40">
-          <div className="flex h-full flex-col items-center justify-center gap-2 p-4">
-            <div className="h-8 w-8 rounded-lg bg-violet-500/30" />
-            <div className="h-2 w-20 rounded-full bg-ink-900/20" />
-            <div className="h-2 w-14 rounded-full bg-ink-900/15" />
-          </div>
-        </GlassCard>
+      <FloatingCard delay={0} floatRange={12}>
+        <img
+          src={heroImg}
+          alt="Featured hero visual"
+          className="w-full max-w-[460px] select-none mix-blend-multiply sm:max-w-[560px]"
+        />
       </FloatingCard>
-
-      {/* Layer 2 - Middle card */}
-      <FloatingCard delay={0.1} floatRange={14} className="absolute left-1/2 top-1/2 w-60 -translate-x-1/2 -translate-y-1/2 sm:w-72">
-        <GlassCard delay={0.2} className="h-40 rotate-[2deg] sm:h-44">
-          <div className="flex h-full flex-col items-center justify-center gap-3 p-5">
-            <div className="flex gap-2">
-              <div className="h-10 w-10 rounded-xl bg-brand-gradient" />
-              <div className="h-10 w-10 rounded-xl bg-blue-500/30" />
-            </div>
-            <div className="h-2 w-24 rounded-full bg-ink-900/20" />
-            <div className="flex gap-2">
-              <div className="h-6 w-12 rounded-full bg-violet-500/20" />
-              <div className="h-6 w-12 rounded-full bg-blue-500/20" />
-            </div>
-          </div>
-        </GlassCard>
-      </FloatingCard>
-
-      {/* Layer 1 - Front card (main visual) */}
-      <FloatingCard delay={0} floatRange={12} className="absolute left-1/2 top-1/2 w-64 -translate-x-1/2 -translate-y-1/2 sm:w-80">
-        <div className="relative overflow-hidden rounded-2xl border border-white/50 bg-white/40 shadow-2xl backdrop-blur-xl">
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.15),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.12),transparent_50%)]" />
-          
-          {/* Content */}
-          <div className="relative flex flex-col items-center justify-center p-6 sm:p-8">
-            <img
-              src={heroImg}
-              alt=""
-              className="w-full max-w-[200px] select-none drop-shadow-[0_20px_40px_rgba(13,18,45,0.15)] sm:max-w-[240px]"
-            />
-          </div>
-        </div>
-      </FloatingCard>
-
-      {/* Small floating elements */}
-      <SmallFloatingElement icon="🎨" label="Design" className="left-0 top-8" delay={0.3} />
-      <SmallFloatingElement icon="💡" label="Ideas" className="right-2 top-12" delay={0.5} />
-      <SmallFloatingElement icon="❤️" label="2.1k" className="left-4 bottom-16" delay={0.7} />
-      <SmallFloatingElement icon="🚀" label="Growth" className="right-0 bottom-20" delay={0.9} />
-      <SmallFloatingElement icon="✨" label="New" className="left-8 top-1/2" delay={0.4} />
-      <SmallFloatingElement icon="📈" label="Stats" className="right-4 top-1/2" delay={0.6} />
     </motion.div>
   )
 }
