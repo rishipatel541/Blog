@@ -37,27 +37,6 @@ function FloatingCard({
   )
 }
 
-function SmallFloatingElement({
-  icon,
-  label,
-  className,
-  delay = 0,
-}: {
-  icon: string
-  label: string
-  className: string
-  delay?: number
-}) {
-  return (
-    <FloatingCard delay={delay} floatRange={8} className={className}>
-      <div className="flex items-center gap-1.5 rounded-full border border-white/50 bg-white/70 px-3 py-1.5 text-xs font-medium text-ink-700 shadow-lg backdrop-blur-md">
-        <span>{icon}</span>
-        <span>{label}</span>
-      </div>
-    </FloatingCard>
-  )
-}
-
 function HeroVisual() {
   const ref = useRef<HTMLDivElement>(null)
   
@@ -95,32 +74,6 @@ function HeroVisual() {
           className="w-full max-w-[460px] select-none mix-blend-multiply sm:max-w-[560px]"
         />
       </FloatingCard>
-    </motion.div>
-  )
-}
-
-// ============ EXISTING FLOATING CHIP (kept for compatibility) ============
-
-function FloatingChip({
-  label,
-  className,
-  delay,
-}: {
-  label: string
-  className: string
-  delay: number
-}) {
-  return (
-    <motion.div
-      variants={floaty(delay)}
-      initial="initial"
-      animate="animate"
-      className={[
-        'pointer-events-none absolute rounded-2xl border border-white/40 bg-glass px-3 py-2 text-xs font-semibold text-ink-700 shadow-soft backdrop-blur',
-        className,
-      ].join(' ')}
-    >
-      {label}
     </motion.div>
   )
 }

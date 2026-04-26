@@ -1,4 +1,5 @@
 import { Container } from './Container'
+import { Link } from 'react-router-dom'
 
 function SocialIcon({ label, path }: { label: string; path: string }) {
   return (
@@ -44,26 +45,52 @@ export function Footer() {
           <div>
             <div className="text-sm font-semibold text-ink-900">Categories</div>
             <ul className="mt-4 space-y-3 text-sm text-ink-700/85">
-              {['All Blogs', 'Lifestyle', 'Travel', 'Food', 'Healthcare', 'Technology'].map((c) => (
-                <li key={c}>
-                  <a href="#" className="hover:text-ink-900">
-                    {c}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link to="/search" className="hover:text-ink-900">
+                  All Blogs
+                </Link>
+              </li>
+              <li>
+                <Link to="/category/lifestyle" className="hover:text-ink-900">
+                  Lifestyle
+                </Link>
+              </li>
+              <li>
+                <Link to="/category/tech" className="hover:text-ink-900">
+                  Technology
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <div className="text-sm font-semibold text-ink-900">Company</div>
             <ul className="mt-4 space-y-3 text-sm text-ink-700/85">
-              {['About Us', 'Work', 'Blog', 'Contact Us', 'Author', '404'].map((c) => (
-                <li key={c}>
-                  <a href="#" className="hover:text-ink-900">
-                    {c}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link to="/" className="hover:text-ink-900">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog/best-desk-setup" className="hover:text-ink-900">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/brand/amazon" className="hover:text-ink-900">
+                  Brand
+                </Link>
+              </li>
+              <li>
+                <Link to="/tag/design" className="hover:text-ink-900">
+                  Tags
+                </Link>
+              </li>
+              <li>
+                <Link to="/missing" className="hover:text-ink-900">
+                  404
+                </Link>
+              </li>
             </ul>
           </div>
 

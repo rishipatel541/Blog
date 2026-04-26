@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
-import { navLinks } from '../data/content'
+import { Link } from 'react-router-dom'
 import { Container } from './Container'
 import { GradientButton } from './GradientButton'
 
 function Logo() {
   return (
-    <a href="#" className="group inline-flex items-center gap-2">
+    <Link to="/" className="group inline-flex items-center gap-2">
       <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-gradient text-sm font-extrabold text-white shadow-glow">
         T
       </span>
@@ -15,7 +15,7 @@ function Logo() {
           blog studio
         </span>
       </span>
-    </a>
+    </Link>
   )
 }
 
@@ -31,14 +31,20 @@ export function Navbar() {
 
   const nav = useMemo(
     () =>
-      navLinks.map((l) => (
-        <a
-          key={l.label}
-          href={l.href}
+      [
+        { label: 'Home', href: '/' },
+        { label: 'Tech', href: '/category/tech' },
+        { label: 'Blog', href: '/blog/best-desk-setup' },
+        { label: 'Brand', href: '/brand/amazon' },
+        { label: 'Search', href: '/search' },
+      ].map((l) => (
+        <Link
+          key={l.href}
+          to={l.href}
           className="rounded-full px-3 py-2 text-sm font-medium text-ink-700 transition hover:bg-white/70 hover:text-ink-900"
         >
           {l.label}
-        </a>
+        </Link>
       )),
     [],
   )

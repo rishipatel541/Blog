@@ -1,28 +1,36 @@
-import { CeoMessage } from './components/CeoMessage'
-import { FeaturedBlogs } from './components/FeaturedBlogs'
 import { Footer } from './components/Footer'
-import { Hero } from './components/Hero'
 import { Navbar } from './components/Navbar'
-import { Newsletter } from './components/Newsletter'
-import { RecentPosts } from './components/RecentPosts'
-import { Videos } from './components/Videos'
-// import { WorksShowcase } from './components/WorksShowcase'
+import { Outlet, Route, Routes } from 'react-router-dom'
+import { BlogDetailPage } from './pages/BlogDetailPage'
+import { BrandPage } from './pages/BrandPage'
+import { CategoryPage } from './pages/CategoryPage'
+import { HomePage } from './pages/HomePage'
+import { NotFoundPage } from './pages/NotFoundPage'
+import { SearchResultsPage } from './pages/SearchResultsPage'
+import { TagPage } from './pages/TagPage'
 
-export default function App() {
+function AppShell() {
   return (
     <div className="min-h-dvh bg-soft-gradient text-ink-900">
       <Navbar />
-      <main>
-        <Hero />
-        <FeaturedBlogs />
-        {/* <WorksShowcase /> */}
-        <RecentPosts />
-        <CeoMessage />
-        <Videos />
-        <Newsletter />
-      </main>
+      <Outlet />
       <Footer />
     </div>
   )
 }
 
+export default function App() {
+  return (
+    <Routes>
+      <Route element={<AppShell />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/category/:slug" element={<CategoryPage />} />
+        <Route path="/blog/:slug" element={<BlogDetailPage />} />
+        <Route path="/brand/:slug" element={<BrandPage />} />
+        <Route path="/search" element={<SearchResultsPage />} />
+        <Route path="/tag/:slug" element={<TagPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
+  )
+}
