@@ -67,57 +67,67 @@ export function Footer() {
             <div className="text-sm font-semibold text-ink-900">Company</div>
             <ul className="mt-4 space-y-3 text-sm text-ink-700/85">
               <li>
-                <Link to="/" className="hover:text-ink-900">
+                <Link to="/about" className="hover:text-ink-900">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/blog/best-desk-setup" className="hover:text-ink-900">
-                  Blog
+                <Link to="/contact" className="hover:text-ink-900">
+                  Contact
                 </Link>
               </li>
               <li>
-                <Link to="/brand/amazon" className="hover:text-ink-900">
-                  Brand
+                <Link to="/author" className="hover:text-ink-900">
+                  Our Team
                 </Link>
               </li>
               <li>
-                <Link to="/tag/design" className="hover:text-ink-900">
-                  Tags
-                </Link>
-              </li>
-              <li>
-                <Link to="/missing" className="hover:text-ink-900">
-                  404
+                <Link to="/blog" className="hover:text-ink-900">
+                  Latest News
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <div className="text-sm font-semibold text-ink-900">Need help?</div>
-            <p className="mt-4 text-sm text-ink-700/85">
-              We’re dedicated to finding the right solution for you—whether it’s content strategy, editorial design, or a
-              clean publishing system.
-            </p>
-            <a
-              href="#"
-              className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-semibold text-ink-900 shadow-soft backdrop-blur transition hover:bg-white"
-            >
-              Need Assistance? <span aria-hidden="true">→</span>
-            </a>
+            <div className="text-sm font-semibold text-ink-900">Resources</div>
+            <ul className="mt-4 space-y-3 text-sm text-ink-700/85">
+              <li>
+                <Link to="/affiliate-disclosure" className="hover:text-ink-900">
+                  Affiliate Disclosure
+                </Link>
+              </li>
+              <li>
+                <Link to="/disclaimer" className="hover:text-ink-900">
+                  Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="hover:text-ink-900">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="hover:text-ink-900">
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-black/5 pt-6 text-xs text-ink-700/70 sm:flex-row sm:items-center sm:justify-between">
           <div>© {new Date().getFullYear()} Textora. All rights reserved.</div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-ink-900">
-              Terms &amp; Conditions
-            </a>
-            <a href="#" className="hover:text-ink-900">
-              Privacy Policy
-            </a>
+            <Link to="/terms" className="hover:text-ink-900">
+              Terms
+            </Link>
+            <Link to="/privacy" className="hover:text-ink-900">
+              Privacy
+            </Link>
+            <Link to="/affiliate-disclosure" className="hover:text-ink-900">
+              Disclosure
+            </Link>
           </div>
         </div>
       </Container>
