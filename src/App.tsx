@@ -18,6 +18,8 @@ import { TermsPage } from './pages/TermsPage'
 import { AffiliateDisclosurePage } from './pages/AffiliateDisclosurePage'
 import { DisclaimerPage } from './pages/DisclaimerPage'
 import { AuthorPage } from './pages/AuthorPage'
+import { ComparisonPage } from './pages/ComparisonPage'
+import { ProgrammaticBestPage } from './pages/ProgrammaticBestPage'
 
 function AppShell() {
   return (
@@ -43,6 +45,8 @@ export default function App() {
         <Route path="/affiliate-disclosure" element={<AffiliateDisclosurePage />} />
         <Route path="/disclaimer" element={<DisclaimerPage />} />
         <Route path="/author" element={<AuthorPage />} />
+        <Route path="/compare/:prod1-vs-:prod2" element={<ComparisonPage />} />
+        <Route path="/best/:category-under-:price" element={<ProgrammaticBestPage />} />
         <Route path="/category/:slug" element={<CategoryPage />} />
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/brand/:slug" element={<BrandPage />} />

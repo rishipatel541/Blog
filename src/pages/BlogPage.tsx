@@ -3,6 +3,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { editorialPosts } from '../data/editorial'
 import { fadeUp, hoverLift, stagger } from '../lib/motion'
+import { FeaturedBlogs } from '../components/FeaturedBlogs'
+import { RecentPosts } from '../components/RecentPosts'
+import { GrowthClusters } from '../components/editorial/GrowthClusters'
 import { Container } from '../components/Container'
 import { SectionHeading } from '../components/SectionHeading'
 
@@ -93,6 +96,8 @@ export function BlogPage() {
               Expertly researched buying guides and product comparisons designed to help you make better decisions, faster.
             </p>
             
+
+            {/* 5. ALL EDITORIAL GUIDES */}
             {/* Editorial Standards Badge */}
             <div className="mt-8 inline-flex items-center gap-6 rounded-3xl border border-white/60 bg-white/40 px-6 py-3 shadow-soft backdrop-blur">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-ink-700">
@@ -157,6 +162,11 @@ export function BlogPage() {
               <p className="text-lg text-ink-700">No articles found in this category.</p>
             </div>
           )}
+
+          {/* 4. CONTENT CLUSTERS (SEO GROWTH) */}
+          <section className="mt-24 py-12 border-t border-ink-100">
+            <GrowthClusters />
+          </section>
         </motion.div>
       </Container>
     </section>
