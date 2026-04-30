@@ -17,6 +17,12 @@ import bestbuyGuide from './bestbuy-guide.png'
 import homedepotGuide from './homedepot-guide.png'
 import sephoraGuide from './sephora-guide.png'
 import costcoGuide from './costco-guide.png'
+import tripGuide from './trip-guide.png'
+import amazonShoppingGuide from './amazon-shopping-guide.png'
+import hpGuide from './hp-guide.png'
+import huluGuide from './hulu-guide.png'
+import paramountGuide from './paramount-guide.png'
+
 
 export const images = {
   thumb1,
@@ -38,6 +44,12 @@ export const images = {
   homedepotGuide,
   sephoraGuide,
   costcoGuide,
+  tripGuide,
+  amazonShoppingGuide,
+  hpGuide,
+  huluGuide,
+  paramountGuide,
+
 } as const
 
 
