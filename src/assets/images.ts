@@ -22,6 +22,34 @@ import amazonShoppingGuide from './amazon-shopping-guide.png'
 import hpGuide from './hp-guide.png'
 import huluGuide from './hulu-guide.png'
 import paramountGuide from './paramount-guide.png'
+import deskOrganizer from './desk-organizer.png'
+import deskLamp from './desk-lamp.png'
+import laptopStand from './laptop-stand.png'
+import keyboardMouse from './keyboard-mouse.png'
+import deskMat from './desk-mat.png'
+import deskLampAlt from './desk-lamp-alt.jpg'
+import bestDeskProductsMain from './best-desk-products-main.jpg'
+import p1 from './1.jpeg'
+import p2 from './2.jpeg'
+import p3 from './3.jpeg'
+import p4 from './4.jpeg'
+import p5 from './5.jpeg'
+import compactDeskSetup from './compact-desk-setup.png'
+import wideDeskSetup from './wide-desk-setup.png'
+import woodenDeskSetup from './wooden-desk-setup.png'
+import gamingDeskSetup from './gaming-desk-setup.png'
+import standingDeskSetup from './standing-desk-setup.png'
+import bestDeskSetupsMain from './best-desk-setups-main.png'
+import appleBrandGuide from './apple-brand-guide.png'
+import adidasBrandGuide from './adidas-brand-guide.png'
+import nikeBrandGuideNew from './nike-brand-guide.png'
+import amazonBrandGuideNew from './amazon-brand-guide.png'
+import walmartBrandGuideNew from './walmart-brand-guide.png'
+
+
+
+
+
 
 
 export const images = {
@@ -49,6 +77,33 @@ export const images = {
   hpGuide,
   huluGuide,
   paramountGuide,
+  deskOrganizer,
+  deskLamp,
+  laptopStand,
+  keyboardMouse,
+  deskMat,
+  deskLampAlt,
+  bestDeskProductsMain,
+  p1,
+  p2,
+  p3,
+  p4,
+  p5,
+  compactDeskSetup,
+  wideDeskSetup,
+  woodenDeskSetup,
+  gamingDeskSetup,
+  standingDeskSetup,
+  bestDeskSetupsMain,
+  appleBrandGuide,
+  adidasBrandGuide,
+  nikeBrandGuideNew,
+  amazonBrandGuideNew,
+  walmartBrandGuideNew,
+
+
+
+
 
 } as const
 
