@@ -1,4 +1,4 @@
-import { editorialPosts, type EditorialPost, type EditorialProduct } from '../data/editorial'
+import { editorialPosts, type EditorialProduct } from '../data/editorial'
 
 export interface ComparisonData {
   productA: EditorialProduct

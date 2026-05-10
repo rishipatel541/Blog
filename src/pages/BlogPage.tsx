@@ -3,11 +3,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { editorialPosts } from '../data/editorial'
 import { fadeUp, hoverLift, stagger } from '../lib/motion'
-import { FeaturedBlogs } from '../components/FeaturedBlogs'
-import { RecentPosts } from '../components/RecentPosts'
 import { GrowthClusters } from '../components/editorial/GrowthClusters'
 import { Container } from '../components/Container'
-import { SectionHeading } from '../components/SectionHeading'
 
 function ImgBlock({ src, from, to }: { src: string; from: string; to: string }) {
   return (
@@ -133,7 +130,6 @@ export function BlogPage() {
 
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {filteredPosts.map((p) => {
-              const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
               return (
                 <motion.div
                   key={p.id}

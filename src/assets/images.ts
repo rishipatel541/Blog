@@ -46,9 +46,16 @@ import nikeBrandGuideNew from './nike-brand-guide.png'
 import amazonBrandGuideNew from './amazon-brand-guide.png'
 import walmartBrandGuideNew from './walmart-brand-guide.png'
 
-
-
-
+import zeroGravityDesk from './zero_gravity_desk.png'
+import biohackKitchen from './biohack_kitchen.png'
+import smartPetHome from './smart_pet_home.png'
+import solarGeneratorDeck from './solar_generator_deck.png'
+import bathRecoverySanctuary from './bath_recovery_sanctuary.png'
+import hydroponicGarden from './hydroponic_garden_1778396463013.png'
+import smartSleep from './smart_sleep_1778396482931.png'
+import digitalNomad from './digital_nomad_1778396504498.png'
+import homeGym from './home_gym_1778396522694.png'
+import smartHome from './smart_home_1778396543979.png'
 
 
 
@@ -100,9 +107,16 @@ export const images = {
   nikeBrandGuideNew,
   amazonBrandGuideNew,
   walmartBrandGuideNew,
-
-
-
+  zeroGravityDesk,
+  biohackKitchen,
+  smartPetHome,
+  solarGeneratorDeck,
+  bathRecoverySanctuary,
+  hydroponicGarden,
+  smartSleep,
+  digitalNomad,
+  homeGym,
+  smartHome,
 
 
 } as const

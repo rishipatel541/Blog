@@ -141,7 +141,7 @@ export function Hero() {
                   className="h-11 w-full bg-transparent px-2 text-sm text-ink-900 outline-none placeholder:text-ink-700/60"
                   placeholder="Search Articles"
                 />
-                <button className="hidden h-11 shrink-0 rounded-xl bg-brand-gradient px-5 text-sm font-semibold text-white shadow-glow transition hover:shadow-[0_18px_60px_rgba(124,58,237,0.30)] sm:inline-flex">
+                <button className="hidden h-11 items-center justify-center shrink-0 rounded-xl bg-brand-gradient px-5 text-sm font-semibold text-white shadow-glow transition hover:shadow-[0_18px_60px_rgba(124,58,237,0.30)] sm:inline-flex">
                   Search
                 </button>
               </div>

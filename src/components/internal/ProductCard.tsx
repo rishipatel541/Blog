@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
-import type { AffiliateProduct } from '../../data/editorial'
+import type { EditorialProduct } from '../../data/editorial'
 import { fadeUp, hoverLift } from '../../lib/motion'
 
 type ProductCardProps = {
-  product: AffiliateProduct
+  product: EditorialProduct
 }
 
 export function ProductCard({ product }: ProductCardProps) {
@@ -20,7 +20,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <img src={product.image} alt={product.name} className="h-40 w-full object-cover object-center" />
       </div>
       <h3 className="mt-3 text-lg font-semibold text-ink-900">{product.name}</h3>
-      <p className="mt-1 text-sm text-ink-700">{product.description}</p>
+      <p className="mt-1 text-sm text-ink-700">{product.bestFor ? `Best for: ${product.bestFor}` : (product.features?.[0] || '')}</p>
       <div className="mt-3 flex items-center justify-between">
         <span className="text-sm font-semibold text-ink-900">{product.price}</span>
         <a

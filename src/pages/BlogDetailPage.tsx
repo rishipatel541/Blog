@@ -1,20 +1,19 @@
 import { Link, useParams } from 'react-router-dom'
 import { Container } from '../components/Container'
-import { Sidebar } from '../components/internal/Sidebar'
-import { editorialPosts, getPostBySlug, popularTags } from '../data/editorial'
+import { editorialPosts, getPostBySlug } from '../data/editorial'
 import { ProductSection } from '../components/editorial/ProductSection'
 import { ConversionTable } from '../components/editorial/ConversionTable'
 import { SEOFAQ } from '../components/editorial/SEOFAQ'
 import { motion } from 'framer-motion'
 import { fadeUp, stagger } from '../lib/motion'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { BlogCard } from '../components/internal/BlogCard'
 import { CTAButton } from '../components/editorial/CTAButton'
 
 export function BlogDetailPage() {
   const { slug = '' } = useParams()
   const post = getPostBySlug(slug)
-  const [lastUpdated] = useState(new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }))
+
 
   useEffect(() => {
     if (post) {
@@ -38,7 +37,7 @@ export function BlogDetailPage() {
     )
   }
 
-  const relatedPosts = editorialPosts.filter(p => p.slug !== post.slug).slice(0, 3)
+
 
   return (
     <main className="pb-20 pt-10 sm:pt-12">
