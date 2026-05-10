@@ -4,6 +4,7 @@ import { Outlet, Route, Routes } from 'react-router-dom'
 import { BlogPage } from './pages/BlogPage'
 import { BlogDetailPage } from './pages/BlogDetailPage'
 import { BrandPage } from './pages/BrandPage'
+import { BrandsPage } from './pages/BrandsPage'
 import { CategoryPage } from './pages/CategoryPage'
 import { HomePage } from './pages/HomePage'
 import { NotFoundPage } from './pages/NotFoundPage'
@@ -50,6 +51,7 @@ export default function App() {
         <Route path="/category/:slug" element={<CategoryPage />} />
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/brand/:slug" element={<BrandPage />} />
+        <Route path="/brands" element={<BrandsPage />} />
         <Route path="/search" element={<SearchResultsPage />} />
         <Route path="/tag/:slug" element={<TagPage />} />
         <Route path="*" element={<NotFoundPage />} />

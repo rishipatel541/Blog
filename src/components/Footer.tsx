@@ -1,5 +1,6 @@
 import { Container } from './Container'
 import { Link } from 'react-router-dom'
+import { editorialPosts } from '../data/editorial'
 
 function SocialIcon({ label, path }: { label: string; path: string }) {
   return (
@@ -16,6 +17,11 @@ function SocialIcon({ label, path }: { label: string; path: string }) {
 }
 
 export function Footer() {
+  const allBrands = Array.from(new Set(editorialPosts.map(p => p.brand)))
+    .filter(b => b && b !== 'Editorial' && b !== 'Budget' && b !== 'Aesthetic' && b !== 'Tech' && b !== 'Health')
+    .sort()
+    .slice(0, 5)
+
   return (
     <footer id="contact" className="border-t border-black/5 bg-white/25 py-12 backdrop-blur">
       <Container>
@@ -27,26 +33,14 @@ export function Footer() {
               </span>
               <span className="text-sm font-semibold tracking-tight text-ink-900">Textora</span>
             </div>
-            <a href="mailto:hello@designmonks.co" className="mt-4 block text-sm font-medium text-ink-700 hover:text-ink-900">
-              hello@designmonks.co
-            </a>
             <p className="mt-3 text-sm text-ink-700/80">Stay socially connected with us.</p>
-
-            <div className="mt-5 flex items-center gap-3">
-              <SocialIcon
-                label="LinkedIn"
-                path="M4 4h4v16H4V4Zm2 3a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm6 13v-9h4v1.6c.6-1 1.7-2 3.6-2 3 0 4.4 2 4.4 5.3V20h-4v-4.6c0-1.6-.3-2.7-1.7-2.7-1.2 0-2 1-2 2.7V20h-4Z"
-              />
-              <SocialIcon label="Instagram" path="M7 7h10v10H7V7Zm-2 0a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7Zm10.5 1.5h.01" />
-              <SocialIcon label="X" path="M4 4l16 16M20 4L4 20" />
-            </div>
           </div>
 
           <div>
             <div className="text-sm font-semibold text-ink-900">Categories</div>
             <ul className="mt-4 space-y-3 text-sm text-ink-700/85">
               <li>
-                <Link to="/search" className="hover:text-ink-900">
+                <Link to="/blog" className="hover:text-ink-900">
                   All Blogs
                 </Link>
               </li>
@@ -90,28 +84,15 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="text-sm font-semibold text-ink-900">Resources</div>
+            <div className="text-sm font-semibold text-ink-900">Brands</div>
             <ul className="mt-4 space-y-3 text-sm text-ink-700/85">
-              <li>
-                <Link to="/affiliate-disclosure" className="hover:text-ink-900">
-                  Affiliate Disclosure
-                </Link>
-              </li>
-              <li>
-                <Link to="/disclaimer" className="hover:text-ink-900">
-                  Disclaimer
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy" className="hover:text-ink-900">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms" className="hover:text-ink-900">
-                  Terms & Conditions
-                </Link>
-              </li>
+              {allBrands.map(brand => (
+                <li key={brand}>
+                  <Link to={`/brand/${brand.toLowerCase().replace(/ /g, '-')}`} className="hover:text-ink-900">
+                    {brand}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -134,4 +115,3 @@ export function Footer() {
     </footer>
   )
 }
-

@@ -7,20 +7,14 @@ import { SectionHeading } from './SectionHeading'
 
 function WorkVisual({ from, to }: { from: string; to: string }) {
   return (
-    <div
-      className="relative overflow-hidden rounded-3xl border border-white/60 shadow-soft"
-      style={{
-        backgroundImage: `radial-gradient(800px 420px at 20% 18%, rgba(255,255,255,0.65), transparent 65%), linear-gradient(135deg, ${from}, ${to})`,
-      }}
-    >
+    <div className="relative overflow-hidden rounded-3xl border border-white/60 shadow-soft">
       <img
         src={workShowcaseImage}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-top opacity-95 mix-blend-overlay"
+        className="absolute inset-0 h-full w-full object-cover object-top"
         loading="lazy"
         decoding="async"
       />
-      <div className="absolute inset-0 opacity-70 [background:radial-gradient(500px_220px_at_60%_0%,rgba(255,255,255,0.55),transparent_65%)]" />
       <div className="absolute -left-20 -top-16 h-64 w-64 rounded-full bg-white/25 blur-3xl" />
       <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-black/10 blur-3xl" />
       <div className="relative aspect-[16/9] p-3">

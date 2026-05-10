@@ -18,16 +18,11 @@ export function BlogCard({ post }: BlogCardProps) {
       className="rounded-3xl border border-white/60 bg-white/55 p-3.5 shadow-soft backdrop-blur"
     >
       <Link to={`/blog/${post.slug}`} className="group block">
-        <div
-          className="relative overflow-hidden rounded-2xl border border-white/60 shadow-soft"
-          style={{
-            backgroundImage: `radial-gradient(900px 420px at 20% 10%, rgba(255,255,255,0.58), transparent 65%), linear-gradient(135deg, ${post.accentFrom}, ${post.accentTo})`,
-          }}
-        >
+        <div className="relative overflow-hidden rounded-2xl border border-white/60 shadow-soft">
           <img
             src={post.image}
             alt={post.title}
-            className="h-48 w-full object-cover object-center opacity-95 mix-blend-overlay transition duration-300 group-hover:scale-[1.03]"
+            className="h-48 w-full object-cover object-center transition duration-300 group-hover:scale-[1.03]"
           />
         </div>
         <div className="mt-3">

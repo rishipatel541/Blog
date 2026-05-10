@@ -12,7 +12,7 @@ export function HomePage() {
       <FeaturedBlogs />
       <RecentPosts />
       <CeoMessage />
-      <Videos />
+      {/* <Videos /> */}
       <Newsletter />
     </main>
   )

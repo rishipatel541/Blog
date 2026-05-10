@@ -47,7 +47,7 @@ export function CeoMessage() {
 
             <motion.div variants={fadeUp}>
               <div className="max-w-3xl text-center lg:text-left">
-                <div className="text-xs font-semibold text-ink-700/70">Message from our CEO</div>
+                <div className="text-xs font-semibold text-ink-700/70"></div>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">
                   A note to every curious reader
                 </h2>

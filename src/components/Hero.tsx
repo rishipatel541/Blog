@@ -80,7 +80,7 @@ function HeroVisual() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pb-12 pt-10 sm:pb-16 sm:pt-12">
+    <section className="relative overflow-hidden pb-4 pt-10 sm:pb-4 sm:pt-12">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[-180px] top-[-120px] h-[420px] w-[420px] rounded-full bg-violet-500/15 blur-3xl" />
         <div className="absolute right-[-220px] top-[-80px] h-[520px] w-[520px] rounded-full bg-blue-500/15 blur-3xl" />

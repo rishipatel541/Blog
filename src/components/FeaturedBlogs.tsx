@@ -8,20 +8,14 @@ import { SectionHeading } from './SectionHeading'
 
 function ImgBlock({ src, from, to }: { src: string; from: string; to: string }) {
   return (
-    <div
-      className="relative overflow-hidden rounded-2xl border border-white/60 shadow-soft"
-      style={{
-        backgroundImage: `radial-gradient(900px 400px at 20% 15%, rgba(255,255,255,0.55), transparent 65%), linear-gradient(135deg, ${from}, ${to})`,
-      }}
-    >
+    <div className="relative overflow-hidden rounded-2xl border border-white/60 shadow-soft">
       <img
         src={src}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-top opacity-95 mix-blend-overlay"
+        className="absolute inset-0 h-full w-full object-cover object-top"
         loading="lazy"
         decoding="async"
       />
-      <div className="absolute inset-0 opacity-50 [background:radial-gradient(450px_160px_at_50%_0%,rgba(255,255,255,0.65),transparent_60%)]" />
       <div className="relative aspect-[16/10]" />
     </div>
   )
@@ -75,7 +69,7 @@ export function FeaturedBlogs() {
       : filteredPostsForCategories.filter((post) => normalize(post.category) === activeCategoryKey)
 
   return (
-    <section id="blog" className="py-10 sm:py-12">
+    <section id="blog" className="pt-4 pb-10 sm:pt-4 sm:pb-12">
       <Container>
         <motion.div
           variants={stagger}

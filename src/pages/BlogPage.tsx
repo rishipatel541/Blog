@@ -8,20 +8,14 @@ import { Container } from '../components/Container'
 
 function ImgBlock({ src, from, to }: { src: string; from: string; to: string }) {
   return (
-    <div
-      className="relative overflow-hidden rounded-2xl border border-white/60 shadow-soft"
-      style={{
-        backgroundImage: `radial-gradient(900px 400px at 20% 15%, rgba(255,255,255,0.55), transparent 65%), linear-gradient(135deg, ${from}, ${to})`,
-      }}
-    >
+    <div className="relative overflow-hidden rounded-2xl border border-white/60 shadow-soft">
       <img
         src={src}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-top opacity-95 mix-blend-overlay"
+        className="absolute inset-0 h-full w-full object-cover object-top"
         loading="lazy"
         decoding="async"
       />
-      <div className="absolute inset-0 opacity-50 [background:radial-gradient(450px_160px_at_50%_0%,rgba(255,255,255,0.65),transparent_60%)]" />
       <div className="relative aspect-[16/10]" />
     </div>
   )
@@ -61,12 +55,24 @@ export function BlogPage() {
   // Filter out Technology category
   const filteredPostsForCategories = editorialPosts.filter(post => post.category !== 'Technology')
 
+  const dynamicCategories = Array.from(new Set(filteredPostsForCategories.map((post) => post.category))).map((category) => ({
+    key: category.toLowerCase(),
+    label: category,
+  }))
+
+  const extraCategories = [
+    { key: 'smart-home', label: 'Smart Home' },
+    { key: 'gaming', label: 'Gaming' },
+    { key: 'audio', label: 'Audio' },
+    { key: 'health', label: 'Health' },
+    { key: 'travel', label: 'Travel' },
+    { key: 'outdoor', label: 'Outdoor' },
+  ]
+
   const categories = [
     { key: 'all', label: 'All' },
-    ...Array.from(new Set(filteredPostsForCategories.map((post) => post.category))).map((category) => ({
-      key: category.toLowerCase(),
-      label: category,
-    })),
+    ...dynamicCategories,
+    ...extraCategories.filter(ec => !dynamicCategories.find(dc => dc.key === ec.key))
   ]
   const [activeCategoryKey, setActiveCategoryKey] = useState('all')
 
@@ -92,7 +98,7 @@ export function BlogPage() {
             <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-700">
               Expertly researched buying guides and product comparisons designed to help you make better decisions, faster.
             </p>
-            
+
 
             {/* 5. ALL EDITORIAL GUIDES */}
             {/* Editorial Standards Badge */}

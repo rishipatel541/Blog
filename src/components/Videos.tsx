@@ -6,16 +6,11 @@ import { SectionHeading } from './SectionHeading'
 
 function VideoCover({ src, from, to }: { src: string; from: string; to: string }) {
   return (
-    <div
-      className="relative overflow-hidden rounded-3xl border border-white/60 shadow-soft"
-      style={{
-        backgroundImage: `radial-gradient(800px 320px at 30% 10%, rgba(255,255,255,0.65), transparent 60%), linear-gradient(135deg, ${from}, ${to})`,
-      }}
-    >
+    <div className="relative overflow-hidden rounded-3xl border border-white/60 shadow-soft">
       <img
         src={src}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-top opacity-95 mix-blend-overlay"
+        className="absolute inset-0 h-full w-full object-cover object-top"
         loading="lazy"
         decoding="async"
       />

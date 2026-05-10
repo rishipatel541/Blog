@@ -7,16 +7,11 @@ import { Link } from 'react-router-dom'
 
 function MiniVisual({ src, from, to }: { src: string; from: string; to: string }) {
   return (
-    <div
-      className="relative overflow-hidden rounded-2xl border border-white/60 shadow-soft"
-      style={{
-        backgroundImage: `radial-gradient(700px 260px at 20% 10%, rgba(255,255,255,0.65), transparent 60%), linear-gradient(135deg, ${from}, ${to})`,
-      }}
-    >
+    <div className="relative overflow-hidden rounded-2xl border border-white/60 shadow-soft">
       <img
         src={src}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-top opacity-95 mix-blend-overlay"
+        className="absolute inset-0 h-full w-full object-cover object-top"
         loading="lazy"
         decoding="async"
       />
@@ -27,14 +22,14 @@ function MiniVisual({ src, from, to }: { src: string; from: string; to: string }
 
 export function RecentPosts() {
   return (
-    <section className="py-10 sm:py-12">
-      <Container>
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-        >
+    <section className="py-10 sm:py-12 overflow-hidden">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
+        <Container>
           <motion.div variants={fadeUp}>
             <SectionHeading
               title="Recent Posts"
@@ -48,12 +43,13 @@ export function RecentPosts() {
               }
             />
           </motion.div>
+        </Container>
 
-          <div className="mt-6 -mx-4 overflow-hidden px-4">
-            <motion.div
-              className="flex w-max gap-4 pb-1"
+        <div className="mt-6 w-full">
+          <motion.div
+            className="flex w-max gap-4 pb-1 pl-4 sm:pl-6 lg:pl-8"
               animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
+              transition={{ duration: 85, repeat: Infinity, ease: 'linear' }}
             >
               {editorialPosts.concat(editorialPosts).map((p, idx) => (
                 <motion.div
@@ -77,9 +73,8 @@ export function RecentPosts() {
                 </motion.div>
               ))}
             </motion.div>
-          </div>
-        </motion.div>
-      </Container>
+        </div>
+      </motion.div>
     </section>
   )
 }

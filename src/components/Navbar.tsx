@@ -29,25 +29,6 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const nav = useMemo(
-    () =>
-      [
-        { label: 'Home', href: '/' },
-        { label: 'Blogs', href: '/blog' },
-        { label: 'Brand', href: '/brand/amazon' },
-        { label: 'Search', href: '/search' },
-      ].map((l) => (
-        <Link
-          key={l.href}
-          to={l.href}
-          className="rounded-full px-3 py-2 text-sm font-medium text-ink-700 transition hover:bg-white/70 hover:text-ink-900"
-        >
-          {l.label}
-        </Link>
-      )),
-    [],
-  )
-
   return (
     <div className="sticky top-0 z-50">
       <div
@@ -59,9 +40,26 @@ export function Navbar() {
         <Container>
           <div className="flex h-16 items-center justify-between gap-4">
             <Logo />
-            <nav className="hidden items-center gap-1 md:flex">{nav}</nav>
+            <nav className="hidden items-center gap-1 md:flex">
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Blogs', href: '/blog' },
+                { label: 'Brands', href: '/brands' },
+                { label: 'Search', href: '/search' },
+              ].map((l) => (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  className="rounded-full px-3 py-2 text-sm font-medium text-ink-700 transition hover:bg-white/70 hover:text-ink-900"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
             <div className="flex items-center gap-2">
-              <GradientButton>Get Started</GradientButton>
+              <Link to="/contact">
+                <GradientButton>Contact Us</GradientButton>
+              </Link>
             </div>
           </div>
         </Container>
