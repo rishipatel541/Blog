@@ -56,6 +56,11 @@ import smartSleep from './smart_sleep_1778396482931.png'
 import digitalNomad from './digital_nomad_1778396504498.png'
 import homeGym from './home_gym_1778396522694.png'
 import smartHome from './smart_home_1778396543979.png'
+import morningRoutine from './morning-routine.png'
+import healthyHabits from './healthy-habits.png'
+import travelEssentials from './travel-essentials.png'
+import minimalLifestyle from './minimal-lifestyle.png'
+import selfCare from './self-care.png'
 
 
 
@@ -117,6 +122,11 @@ export const images = {
   digitalNomad,
   homeGym,
   smartHome,
+  morningRoutine,
+  healthyHabits,
+  travelEssentials,
+  minimalLifestyle,
+  selfCare,
 
 
 } as const
